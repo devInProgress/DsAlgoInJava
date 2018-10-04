@@ -74,7 +74,7 @@ public class LinkedList {
 
   public void delete(int value) {
     if (head == null) {
-      throw new IllegalStateException("Empty list!");
+      return;
     }
     if (size() == 1 && head.data != value) {
       return;
