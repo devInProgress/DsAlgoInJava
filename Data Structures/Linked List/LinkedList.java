@@ -53,4 +53,46 @@ public class LinkedList {
     current.next = newNode;
   }
 
+  public int size() {
+    if (head == null) {
+      return 0;
+    }
+    Node current = head;
+    int count = 0;
+
+    while (current != null) {
+      count++;
+      current = current.next;
+    }
+
+    return count;
+  }
+  
+  public void clear() {
+    head = null;
+  }
+
+  public void delete(int value) {
+    if (head == null) {
+      throw new IllegalStateException("Empty list!");
+    }
+    if (size() == 1 && head.data != value) {
+      return;
+    } 
+    if (head.data == value) {
+      head = head.next;
+      return;
+    }
+    Node current = head;
+
+    while (current.next.data != value) {
+      current = current.next;
+    }
+
+    if (current.next.data == value) {
+      current.next = current.next.next;
+      return;
+    }
+  }
+
 }
